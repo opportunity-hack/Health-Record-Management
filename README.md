@@ -1,5 +1,5 @@
-#Health-Record-Management
-#️⃣ Slack Channel: `#2020-vol-intern-simple-ehr`
+# Health Record Management
+#️⃣ Slack Channel: `#2020-ehr-team1`
 
 Some non-profits have "clients" that require demographics and treatment to be tracked easily.  This usually requires some scheduling component as well as a historical record of visits with services provided, then reports follow.  There are open-source EHR solutions on the internet, but none are simple enough for non-profits to use without dedicated training.
 ### Requirements
