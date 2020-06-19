@@ -9,8 +9,8 @@ class NavigationBar extends Component {
  
             return (
                 <div>
-                <Navbar bg="white" expand="lg" style={{backgroundColor : "red"}}>
-                <Link to='/'><img src="/photos/MEDCARE.png" style={logo}/></Link>
+                <Navbar expand="lg" style={{backgroundColor : "white"}}>
+                <Link to='/'><img src="/photos/logo.png" style={logo}/></Link>
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -21,7 +21,7 @@ class NavigationBar extends Component {
                     
                     <Link to='/signin' ><Button variant="warning" style={btton}>Sign in </Button></Link>
                     &nbsp;&nbsp;&nbsp;
-                    <Button variant="warning" style={btton}>Sign Up</Button>
+                    <Link to='/signup' ><Button variant="warning" style={btton}>Sign Up</Button></Link>
                     </Form>
                 </Navbar.Collapse>
                 </Navbar>

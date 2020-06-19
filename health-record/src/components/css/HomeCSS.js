@@ -23,5 +23,5 @@ export const para = {
 
 export const logo = {
     width : '125px',
-    height : '125px',
+    height : '200px',
 }

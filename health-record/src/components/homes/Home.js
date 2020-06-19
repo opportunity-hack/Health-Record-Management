@@ -15,7 +15,7 @@ class Home extends Component {
                 <Container style={{marginTop : 75}}>
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={5} xl={5}>
-                            <img src="/photos/MEDCARE.png" style={logo}/>
+                            <img src="/photos/leftlogo.png" style={logo}/>
                             
                             <h2 style={head2}>View all your treatments at once place</h2>
                             <p style={para}> Using MedCare EHR, you can view your treatments and prescriptions in just one click. You no longer have to dcoument your past medical history as MedCare EHR does that for you.</p>
@@ -23,7 +23,7 @@ class Home extends Component {
                         </Col>
     
                         <Col xs={12} sm={12} md={12} lg={{ span : 5, offset : 2}} xl={{ span : 5, offset : 2}}>
-                            <img src="/photos/MEDCARE.png" style={logo}/>
+                            <img src="/photos/rightlogo.png" style={logo}/>
                             <h2 style={head2}>Accelerate your workflow</h2>
                             <p style={para}>No longer will you need to spend hours after work completing notes. MedCare EHR works with your workflow, not againts it, and let you spend less time in the EHR and more time with your patients.</p>
                             <Button variant="warning">Get started</Button>
