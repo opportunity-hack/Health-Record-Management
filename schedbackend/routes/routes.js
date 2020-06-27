@@ -15,4 +15,5 @@ router.get("/", function(req, res) {
 		    });
 
 router.get("/getDocSched",controller.getDocSched);
+router.post("/schedule",controller.schedule);
 module.exports = router;

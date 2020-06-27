@@ -15,7 +15,7 @@ MongoClient.connect(URL,function(err,database){
 		  }
 		  });
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', routes);
 //routes(app);
 app.listen(3000,'127.0.0.1');

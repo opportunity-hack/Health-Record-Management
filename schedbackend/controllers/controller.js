@@ -1,7 +1,5 @@
 const Doctordetails = require('../models/Doctordetails');
 
-
-
 // Set up mongoose connection
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
@@ -22,3 +20,15 @@ exports.getDocSched = (req,res) => {
 					             res.send(result);
 						         });
 }
+exports.schedule = (req,res) => {
+	console.log("jhjkjklklkk");
+        console.log("popiutr",req.body);
+	var myobj = { Patient_id: req.body.Patient_id, Patient_name: req.body.Patient_name, Patient_phone: req.body.Patient_phone, Diagnosis: req.body.Diagnosis, Doctor_id: req.body.Doctor_id, Day: req.body.Day, Time: req.body.Time};
+	db.collection("Appointments").insertOne(myobj, function(err, result) {
+	      if (err) throw err;
+	      console.log("Appointment created");
+	      res.send(result);
+	    }); 
+
+}
+
