@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Container, Col, Row, Button} from 'react-bootstrap'
-import {logo, head, head1, head2, para} from '../css/HomeCSS'
+import {logo, head, head1, head2, para, col1, col2} from '../css/PHomeCSS'
+import {Link} from 'react-router-dom'
 class PHome extends Component {
 
     componentDidMount() {
@@ -15,15 +16,24 @@ class PHome extends Component {
                 <Container style={{marginTop : 75}}>
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={5} xl={5}>
+                            <span class="material-icons" style={col1}>
+                                healing
+                            </span>
                             <h2 style={head2}>Treatments</h2>
                             <p style={para}>View all treatments you are currently undergoing or have been through.</p>
                             <Button variant="warning">View Treatments</Button>
+
+                        
                         </Col>
     
                         <Col xs={12} sm={12} md={12} lg={{ span : 5, offset : 2}} xl={{ span : 5, offset : 2}}>
+                            <span class="material-icons" style={col2}>
+                                event
+                            </span>
                             <h2 style={head2}>Appointments</h2>
+                            
                             <p style={para}>View past appointments, and schedule new appointments with your doctor or therapist.</p>
-                            <Button variant="warning">View Appointments</Button>
+                            <Link to="/appointment"> <Button variant="warning">View Appointments</Button> </Link>
                         </Col>
                     </Row>
                 </Container>

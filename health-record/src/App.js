@@ -6,6 +6,7 @@ import NavigationBar from './components/navigationbars/NavigationBar'
 import SignIn from './components/authentications/SignIn'
 import SignUp from './components/authentications/SignUp'
 import PHome from './components/homes/PHome'
+import AppointmentHome from './components/homes/AppointmentHome'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/signin' component={SignIn} />
         <Route path='/signup' component={SignUp} />
         <Route path='/phome' component={PHome} />
+        <Route path='/appointment' component={AppointmentHome} />
       </Switch>
     
     </BrowserRouter>
