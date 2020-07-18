@@ -1,0 +1,10 @@
+__pycache__/
+.vscode/
+*pyc
+
+*keys
+keys
+*keys.py
+keys.py
+
+venv
