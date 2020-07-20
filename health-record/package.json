@@ -1,0 +1,21 @@
+{
+  "name": "doctor_bknd",
+  "version": "1.0.0",
+  "description": "Fetches doctor details and post doctor details",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "react": "^16.13.1",
+    "react-calendar": "^3.1.0",
+    "react-dom": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Archana Madhavan",
+  "license": "ISC"
+}
