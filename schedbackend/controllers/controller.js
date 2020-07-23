@@ -1,8 +1,8 @@
 const Doctordetails = require('../models/Doctordetails');
-var client = require('twilio')(
-	  "ACe34bac0befe4dae1203b56eacc73dab2",
-	  "29eb1de2e9cb201ab13a2f715634eb9a"
-);
+//var client = require('twilio')(
+//	  "ACe34bac0befe4dae1203b56eacc73dab2",
+	  //"29eb1de2e9cb201ab13a2f715634eb9a"
+//);
 // Set up mongoose connection
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
