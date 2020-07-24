@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {Container, Col, Row, Button} from 'react-bootstrap'
-import {logo, head, head1, head2, para, col1, col2} from '../css/PHomeCSS'
 import {Link} from 'react-router-dom'
 class Condition extends Component {
 
@@ -10,7 +9,7 @@ class Condition extends Component {
 
     render() {
         return (
-            <div>
+            <div className="col col-lg-4">
               <p id="title"></p>
               <hr>
               <p id="start"></p>
