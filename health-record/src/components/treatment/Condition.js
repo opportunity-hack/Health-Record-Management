@@ -8,18 +8,18 @@ class Condition extends Component {
 
     render() {
         return (
-            <div className="col col-lg-4">
-                <p id="title"></p>
+            <div className="cond col col-lg-4">
+                <div className="ylw mx-0 w-100"><p id="title">Lyme's Disease</p></div>
+                <hr className="my-0" />
+                <p id="start">Start Date: 5/29/2018</p>
+                <p id="end">End Date: Present</p>
                 <hr />
-                <p id="start"></p>
-                <p id="end"></p>
+                <p id="patient">Patient: John Smith</p>
+                <p id="doctor">Doctor: Glen Victoire</p>
                 <hr />
-                <p id="patient"></p>
-                <p id="doctor"></p>
+                <p id="treatment">Treatment: Doxicycline Antibiotics</p>
                 <hr />
-                <p id="treatment"></p>
-                <hr />
-                <p id="notes"></p>
+                <p id="notes">Notes: Due to a tick bite</p>
             </div>
         );
     }

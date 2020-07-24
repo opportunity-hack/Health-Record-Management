@@ -2,3 +2,19 @@
     color: #f0ad4e;
     text-align: center;
 }
+
+.cond {
+    border: 1px solid #f0ad4e;
+}
+
+hr {
+    border-top: 1px solid #f0ad4e;
+}
+
+p {
+    color: white;
+}
+
+.ylw {
+    background-color: #f0ad4e;
+}

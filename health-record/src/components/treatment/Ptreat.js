@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/Treat.css";
+import Condition from "./Condition";
 class Ptreat extends Component {
     componentDidMount() {
         document.body.style.backgroundColor = "#19709c";
@@ -28,6 +29,8 @@ class Ptreat extends Component {
                         </div>
                     </a>
                 </div>
+                <br className="my-4" />
+                <Condition />
             </div>
         );
     }
