@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../css/Treat.css";
 class Ptreat extends Component {
     componentDidMount() {
         document.body.style.backgroundColor = "#19709c";
@@ -10,18 +11,22 @@ class Ptreat extends Component {
         return (
             <div className="container">
                 <br className="my-4" />
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">$</span>
-                    </div>
+                <h1 className="display-4">Patient Treatments</h1>
+                <br className="my-4" />
+                <div className="input-group my-3">
                     <input
                         type="text"
-                        class="form-control"
-                        aria-label="Amount (to the nearest dollar)"
+                        className="form-control"
+                        ariaLabel="Search Treatments"
+                        placeholder="Search Treatments"
                     />
-                    <div class="input-group-append">
-                        <span class="input-group-text"></span>
-                    </div>
+                    <a href="#">
+                        <div className="input-group-append">
+                            <span className="material-icons input-group-text">
+                                search
+                            </span>
+                        </div>
+                    </a>
                 </div>
             </div>
         );
