@@ -1,0 +1,2 @@
+Appointment_id,Patient_id,Doctor_id,Treatment_prescription,Illness,Notes
+456,234,101,Paracetamol,fever,Temperature upto 102
