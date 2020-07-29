@@ -6,12 +6,27 @@ var client = require('twilio')(
 // Set up mongoose connection
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
-let dev_db_url = 'mongodb://localhost:27017/test';
+
+
+//const MongoClient = require('mongodb').MongoClient;
+const dev_db_url = "mongodb+srv://opphack:opphack@cluster0.1kpx9.mongodb.net/Records?retryWrites=true&w=majority";
+//const client = new MongoClient(uri, { useNewUrlParser: true });
+//client.connect(err => {
+//	  const collection = client.db("test").collection("devices");
+	  // perform actions on the collection object
+	//   client.close();
+	//   });
+	//
+
+
+
+
+//let dev_db_url = 'mongodb://opphack:opphack@cluster0-shard-00-00.1kpx9.mongodb.net:27017,cluster0-shard-00-01.1kpx9.mongodb.net:27017,cluster0-shard-00-02.1kpx9.mongodb.net:27017/Records?ssl=true&replicaSet=atlas-avbudu-shard-0&authSource=admin&retryWrites=true&w=majority';
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 //mongoose.Promise = global.Promise;
 let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('error', console.error.bind(console, 'MongoDB connection error: oh no'));
 
 
 exports.getDocSched = (req,res) => {
