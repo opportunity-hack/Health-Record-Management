@@ -1,0 +1,21 @@
+{
+  "name": "schedbackend",
+  "version": "1.0.0",
+  "description": "\"API endpoints for scheduling manager\"",
+  "main": "server.js",
+  "scripts": {
+    "start": "Node js app",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
+    "heroku-postbuild": "echo This runs after Heroku installs dependencies, but before Heroku prunes and caches dependencies.",
+    "heroku-cleanup": "echo This runs after Heroku prunes and caches dependencies."
+  },
+  "author": "Gayathri Sitaraman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.20",
+    "twilio": "^3.48.0"
+  }
+}
