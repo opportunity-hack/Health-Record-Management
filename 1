@@ -18,27 +18,23 @@ db.on('error', console.error.bind(console, 'MongoDB connection error: oh no'));
 
 var doc_id = "";
 exports.getDocSched = (req,res) => {
+		//const cursordb = db.Doctordetails.find({Illness_Specialist: "Diabetes"})
+	 
 	/* The patient id from the request body is matched with PatDoc collection and the doctor id is picked up*/
 	        console.log("Entering now amazing");
-	        console.log(req.query);
-	        var id = parseInt(req.query.uid);
-	        console.log("Fetching for uid",id);
-	        //db.collection("PatDocMap").find({"Patient_id":id}).forEach(printjson);
-	        db.collection("PatDocMap").find({},{'Patient_id':id}).toArray((error,result) => {
+	        console.log(req);
+	        db.collection("PatDocMap").find({"Patient_id": req.body.uid}).toArray((error,result) => {
 			if(error) {console.log("Patient not registered"); return res.status(500).send("Patient is not registered");}
-			console.log(result);
-			doc_id = result[0].Doctor_id;
-			console.log("Doctor id",doc_id);
+			doc_id = result.Doctor_id;
 
-		
+		});
 	        console.log("Doctor details now");
-	        console.log(doc_id);
-		db.collection("Doctordetails").find({},{'Doctor_id': doc_id}).toArray((error, result) => {
+		db.collection("Doctordetails").find({"Doctor_id": doc_id}).toArray((error, result) => {
 				             if(error) {
 						     return res.status(500).send(error);}
-                                                     console.log(result[0].Availability); 
+                                                     console.log(result.Availability); 
 					             res.send(result);
-						         }); });
+						         });
 }
 exports.schedule = (req,res) => {
 	//console.log("jhjkjklklkk");
