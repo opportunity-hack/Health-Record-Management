@@ -4,6 +4,7 @@ var express = require('express')
 var app = express()
 var router = express.Router()
 const controller = require('../controllers/controller');
+app.use(express.json());
 //MongoClient.connect("mongodb://localhost:27017/test",{useNewUrlParser: true, useUnifiedTopology: true}, function (err, client) {
 //	                                   if (err) throw err;
 //	                                console.log("Database created!");
@@ -11,7 +12,7 @@ const controller = require('../controllers/controller');
       //});       
 //var db = client.db('test');
 router.get("/", function(req, res) {
-		      res.status(200).send("Welcome to our restful API");
+		      res.status(200).send("Welcome to Appointment Scheduler");
 		    });
 
 router.get("/getDocSched",controller.getDocSched);

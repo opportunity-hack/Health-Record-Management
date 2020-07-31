@@ -21,11 +21,13 @@ exports.getDocSched = (req,res) => {
 	/* The patient id from the request body is matched with PatDoc collection and the doctor id is picked up*/
 	        console.log("Entering now amazing");
 	        console.log(req.query);
-	        var id = parseInt(req.query.uid);
+	        var id = parseInt(req.query.id);
 	        console.log("Fetching for uid",id);
 	        //db.collection("PatDocMap").find({"Patient_id":id}).forEach(printjson);
-	        db.collection("PatDocMap").find({},{'Patient_id':id}).toArray((error,result) => {
+	        db.collection("PatDocMap").find( { Patient_id:id } ).toArray((error,result) => {
+			//console.log(error);
 			if(error) {console.log("Patient not registered"); return res.status(500).send("Patient is not registered");}
+			if(result.length <= 0)  { console.log("Patient not registered"); return res.status(500).send("Patient is not registered"); } 
 			console.log(result);
 			doc_id = result[0].Doctor_id;
 			console.log("Doctor id",doc_id);
@@ -33,17 +35,19 @@ exports.getDocSched = (req,res) => {
 		
 	        console.log("Doctor details now");
 	        console.log(doc_id);
-		db.collection("Doctordetails").find({},{'Doctor_id': doc_id}).toArray((error, result) => {
+		db.collection("Doctordetails").find( { Doctor_id:doc_id } ).toArray((error, result) => {
 				             if(error) {
 						     return res.status(500).send(error);}
-                                                     console.log(result[0].Availability); 
-					             res.send(result);
+			                             console.log(result);
+                                                     console.log(result[0].Availability);
+			                             var docresult = {Doctor_first_name: result[0].First_name, Doctor_last_name: result[0].Last_name, Doctor_avail: result[0].Availability }
+					             res.send(docresult);
 						         }); });
 }
 exports.schedule = (req,res) => {
 	//console.log("jhjkjklklkk");
         console.log("popiutr",req.body);
-	var myobj = { Patient_id: req.body.Patient_id, Patient_name: req.body.Patient_name, Patient_phone: req.body.Patient_phone, Diagnosis: req.body.Diagnosis, Doctor_id: req.body.Doctor_id, Date_appt: req.body.Date_appt, Day: req.body.Day, Time: req.body.Time};
+	var myobj = { Patient_id: req.body.id, Patient_name: req.body.first_name, Patient_phone: req.body.phone_number,  Date_appt: req.body.Date_appt, Time: req.body.Time};
 	db.collection("Appointments").insertOne(myobj, function(err, result) {
 	      if (err) throw err;
 	      console.log("Appointment created");
