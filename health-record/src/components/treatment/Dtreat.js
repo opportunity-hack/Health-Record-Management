@@ -3,7 +3,7 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/Treat.css";
 import Condition from "./Condition";
-class Ptreat extends Component {
+class Dtreat extends Component {
     componentDidMount() {
         document.body.style.backgroundColor = "#19709c";
     }
@@ -12,7 +12,7 @@ class Ptreat extends Component {
         return (
             <div className="container">
                 <br className="my-4" />
-                <h1 className="display-4">Patient Treatments</h1>
+                <h1 className="display-4">Doctor Treatments</h1>
                 <br className="my-4" />
                 <div className="input-group my-3 px-5">
                     <input
@@ -29,16 +29,15 @@ class Ptreat extends Component {
                         </div>
                     </a>
                 </div>
-                <br className="my-4" />
-                <div className="row">
-                    <Condition />
-                    <Condition />
-                    <Condition />
-                    <Condition /> 
-                </div>               
+                <div className = "row">
+                <Condition />
+                <Condition />
+                <Condition />
+                <Condition />
+                </div>
             </div>
         );
     }
 }
 
-export default Ptreat;
+export default Dtreat;

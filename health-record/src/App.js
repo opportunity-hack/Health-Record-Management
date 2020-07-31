@@ -10,6 +10,7 @@ import PHome from "./components/homes/PHome";
 import DHome from "./components/homes/DHome";
 import AppointmentHome from "./components/homes/AppointmentHome";
 import Ptreat from "./components/treatment/Ptreat";
+import Dtreat from "./components/treatment/Dtreat";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/Dhome" component={DHome} />
                 <Route path="/appointment" component={AppointmentHome} />
                 <Route path="/ptreat" component={Ptreat} />
+                <Route path="/dtreat" component={Dtreat} />
             </Switch>
             <Footer />
         </BrowserRouter>

@@ -5,6 +5,7 @@
 
 .cond {
     border: 1px solid #f0ad4e;
+    text-align: center;
 }
 
 hr {
@@ -17,4 +18,7 @@ p {
 
 .ylw {
     background-color: #f0ad4e;
+    
 }
+
+
