@@ -57,7 +57,7 @@ exports.schedule = (req,res) => {
 		        body: " Your doctor's appointment has been confirmed for " + myobj.Date_appt + ", " + myobj.Day + "at" + myobj.Time
 		     
 	      }).then((message) => console.log(message.sid));
-	      res.send(result);
+	      res.send(" Your doctor's appointment has been confirmed for " + myobj.Date_appt + " at " + myobj.Time );
 	    }); 
 
 }
