@@ -38,6 +38,7 @@ exports.getDocSched = (req,res) => {
 		db.collection("Doctordetails").find( { Doctor_id:doc_id } ).toArray((error, result) => {
 				             if(error) {
 						     return res.status(500).send(error);}
+			                              if(result.length <= 0)  { console.log("Dcotor has not been assigned yet"); return res.status(500).send("Doctor has not been assigned yet"); }       
 			                             console.log(result);
                                                      console.log(result[0].Availability);
 			                             var docresult = {Doctor_first_name: result[0].First_name, Doctor_last_name: result[0].Last_name, Doctor_avail: result[0].Availability }
