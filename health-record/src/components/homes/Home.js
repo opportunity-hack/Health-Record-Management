@@ -3,7 +3,7 @@ import {Container, Col, Row, Button} from 'react-bootstrap'
 import {logo, head, head1, head2, para} from '../css/HomeCSS'
 import ChatBox from '../chat/ChatBox'
 import {connect} from 'react-redux'
-import {fetchUser} from '../store/actions/authenticationAction'
+import {fetchUser, fetchUserAppointment} from '../store/actions/authenticationAction'
 import {useSpring, animated} from 'react-spring'
 class Home extends Component {
     state = {
@@ -20,10 +20,11 @@ class Home extends Component {
     }
     componentDidMount() {
         document.body.style.backgroundColor = "#19709c"
+        this.props.fetchUserAppointment()
     }
 
     render() {
-    
+        console.log(this.props.apptData)
         return (
             <div style={{textAlign : "center"}}>
                 <h style={head}>WELCOME TO MEDCARE</h>
@@ -48,7 +49,7 @@ class Home extends Component {
                 </Container>
                 
             
-                {this.state.botVisible && <ChatBox />}     
+                 <ChatBox />   
                  
                 
                 <div style={{float : "left"}}>
@@ -63,14 +64,16 @@ class Home extends Component {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchUser : () => {dispatch(fetchUser())}
+        fetchUser : () => {dispatch(fetchUser())},
+        fetchUserAppointment : () => dispatch(fetchUserAppointment())
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         userData : state.authentication.userData,
-        logged_in : state.authentication.logged_in
+        logged_in : state.authentication.logged_in,
+        apptData : state.authentication.apptData
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

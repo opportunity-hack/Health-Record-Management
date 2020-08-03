@@ -61,7 +61,7 @@ class DHome extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchUser : () => {dispatch(fetchUser())}
+        fetchUser : () => {dispatch(fetchUser())},
     }
 }
 

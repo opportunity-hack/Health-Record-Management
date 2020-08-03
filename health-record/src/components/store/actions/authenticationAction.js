@@ -68,6 +68,46 @@ export const fetchUser = () => {
     
 }
 
+
+export const fetchUserAppointment = () => {
+  
+  return (dispatch, getState) =>  {
+    fetch('https://schedapp1.herokuapp.com/getDocSched?id=41', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        } 
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      dispatch({type : 'FETCH_USER_APPT', payload : data})
+    })
+    .catch(err => {dispatch({type : "FETCH_USER_APPT_ERROR"})})
+
+  }
+    
+}
+export const scheduleAppt = (appt_detail) => {
+  return (dispatch, getState) =>  {
+    fetch('https://schedapp1.herokuapp.com/schedule', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(appt_detail)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      dispatch({type : 'FETCH_USER_APPT', payload : data})
+    })
+    .catch(err => {dispatch({type : "FETCH_USER_APPT_ERROR"})})
+
+  }
+    
+}
+
 export const signUp = (userCredential) => {
 
     return (dispatch, getState) => {
