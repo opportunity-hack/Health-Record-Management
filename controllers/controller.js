@@ -63,3 +63,38 @@ exports.schedule = (req,res) => {
 
 }
 
+/* Get call for fetching all appointments of current user*/
+exports.getAppt = (req,res) => {
+	var today = new Date(Date.now());
+        //console.log(today.toLocaleDateString('en-US',{ timeZone: 'America/Phoenix' }));
+        var apptresult = []
+	var pastappt = []
+	var Appthistory = {'Past': "Empty", "Upcoming": "Empty"}
+	console.log("Fetching all appointments");
+	db.collection("Appointments").find( { Patient_id:parseInt(req.query.id) } ).toArray((error,result) => {
+		if(error) throw error;
+		if(result.length == 0) {
+			console.log("There are no appointments"); return res.status(500).send("There are no appointments"); 
+		}
+		for(var i = 0; i< result.length;i++) {
+			console.log(today, result[i].Date_appt);
+			//var date1 = new Date(today.toString());
+			var date2 = new Date(result[i].Date_appt.toString());
+			console.log(today, date2);
+			if(date2> today) {
+                               apptresult.push(result[i]);
+			}
+			else pastappt.push(result[i]);
+		}
+//                Appthistory = { 'Past' :pastappt,'Upcoming' :apptresult }
+		if(apptresult.length == 0) {console.log("No upcoming appointments"); res.status(500).send("No upcoming appointments");}
+	//	if(pastappt.length == 0) {pastappt = "Empty"}
+		else {
+			 Appthistory = { 'Past' :pastappt,'Upcoming' :apptresult } 
+			console.log(Appthistory);
+		res.send(Appthistory);
+		}
+	});
+
+}
+
