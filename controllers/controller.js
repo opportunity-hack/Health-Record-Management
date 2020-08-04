@@ -66,7 +66,7 @@ exports.schedule = (req,res) => {
 /* Get call for fetching all appointments of current user*/
 exports.getAppt = (req,res) => {
 	var today = new Date(Date.now());
-        //console.log(today.toLocaleDateString('en-US',{ timeZone: 'America/Phoenix' }));
+        console.log(today.toLocaleDateString('en-US',{ timeZone: 'America/Phoenix' }));
         var apptresult = []
 	var pastappt = []
 	var Appthistory = {'Past': "Empty", "Upcoming": "Empty"}
