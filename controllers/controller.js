@@ -97,4 +97,13 @@ exports.getAppt = (req,res) => {
 	});
 
 }
+exports.hasDoc  = (req,res) => {
+	 var id = parseInt(req.query.id);
+	 db.collection("PatDocMap").find( { Patient_id:id } ).toArray((error,result) => {
+		 if(error) {console.log("Doctor not assigned"); return res.status(500).send("False");}
+		 if(result.length <= 0)  { console.log("Doctor not assigned"); return res.status(500).send("False"); }
+		 //console.log(result);
+		 //doc_id = result[0].Doctor_id;
+		 res.send("True"); });
 
+}

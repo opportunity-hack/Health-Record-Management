@@ -18,4 +18,5 @@ router.get("/", function(req, res) {
 router.get("/getDocSched",controller.getDocSched);
 router.post("/schedule",controller.schedule);
 router.get("/getAppt", controller.getAppt);
+router.get("/hasDoc",controller.hasDoc);
 module.exports = router;
