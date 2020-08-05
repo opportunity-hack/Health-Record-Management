@@ -12,8 +12,10 @@
   "author": "Gayathri Sitaraman",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.20",
     "twilio": "^3.48.0"

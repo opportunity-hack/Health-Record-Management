@@ -1,0 +1,4 @@
+{
+	"dburi" : "mongodb+srv://opphack:opphack@cluster0.1kpx9.mongodb.net/Records?retryWrites=true&w=majority",
+	"secret_key" : "%=dv)yo$d69xq-6&!2@3*!$lb^o*n&$ia=*4ad4q2+w41$m3^0"
+}

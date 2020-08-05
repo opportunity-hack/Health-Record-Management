@@ -6,10 +6,10 @@ var client = require('twilio')(
 // Set up mongoose connection
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
-
-
-//const MongoClient = require('mongodb').MongoClient;
-const dev_db_url = "mongodb+srv://opphack:opphack@cluster0.1kpx9.mongodb.net/Records?retryWrites=true&w=majority";
+let config_data = {};
+config_data = require('config');
+//...
+dev_db_url = config_data.get('dburi');
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 //mongoose.Promise = global.Promise;
