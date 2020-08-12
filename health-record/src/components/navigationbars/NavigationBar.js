@@ -13,6 +13,8 @@ class NavigationBar extends Component {
         }
     }
     render() {
+            console.log(this.props.userData)
+            
 
             return (
                 <div>
@@ -35,6 +37,10 @@ class NavigationBar extends Component {
                     
                     {this.props.logged_in ?
                     <div>
+                        <Button variant="warning" style={btton} onClick={() => window.location.href = '/dtreat'}>Treatment </Button>
+                        &nbsp;&nbsp;&nbsp;
+                        <Button variant="warning" style={btton} onClick={() => window.location.href = '/appointment'}>Calendar </Button>
+                        &nbsp;&nbsp;&nbsp;
                         <Button variant="warning" style={btton} onClick={() => this.props.signOut()}>Sign Out</Button>
                     </div>
                     
@@ -66,8 +72,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.authentication)
-
    return {
        logged_in : state.authentication.logged_in,
        userData : state.authentication.userData

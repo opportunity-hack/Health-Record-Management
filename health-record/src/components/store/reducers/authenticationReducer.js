@@ -3,7 +3,8 @@ const firstState = {
     signInError : false,
     logged_in: localStorage.getItem('token') ? true : false,
     userData : '',
-    apptData : ''
+    apptData : '',
+    currentApptData : ''
 }
 
 const authenticationReducer = (state = firstState, action) => {
@@ -19,8 +20,24 @@ const authenticationReducer = (state = firstState, action) => {
                 ...state,
                 userData : action.payload
             }
-        case 'FETCH_USER_APPT' :
+        case 'FETCH_USER_CURRENT_APPT' :
+            console.log("succesfully getting user current appointment")
+            return {
+                ...state,
+                currentApptData : action.payload
+            }
+        case 'CREATE_USER_APPT' :
             console.log("Appointment been scheduled")
+            console.log(action.payload)
+            return state
+
+        case "CREATE_USER_APPT_ERROR" : 
+            console.log("Error appointment hasn't been scheduled ")
+            console.log(action.payload)
+            return state
+
+        case 'FETCH_USER_APPT' :
+            console.log("User has been fetch with scheduled")
             console.log(action.payload)
             return {
                 ...state,

@@ -180,9 +180,21 @@ class SignUp extends Component {
                                     <input type="radio" id="gender" name="gender" value="male" onChange={(e) => this.handleChange(e)}/>
                                     <label for="male"> Male</label>
                                 </div>
-                                <div style={{fontSize : 20, color : "white", float : "right"}}>
+                                <div style={{fontSize : 20, color : "white", float : "left", marginLeft : 10}}>
                                     <input type="radio" id="gender" name="gender" value="female" onChange={(e) => this.handleChange(e)} />
                                     <label for="female">Female</label>
+                                </div>
+                                <div style={{fontSize : 20, color : "white", float : "left", marginLeft : 10}}>
+                                    <input type="radio" id="gender" name="gender" value="Non-binary" onChange={(e) => this.handleChange(e)} />
+                                    <label for="Non-binary">Non-binary</label>
+                                </div>
+                                <div style={{fontSize : 20, color : "white", float : "left", marginLeft : 10}}>
+                                    <input type="radio" id="gender" name="gender" value="A gender not listed here" onChange={(e) => this.handleChange(e)} />
+                                    <label for="A gender not listed here">A gender not listed here</label>
+                                </div>
+                                <div style={{fontSize : 20, color : "white", float : "left"}}>
+                                    <input type="radio" id="gender" name="gender" value="Prefer not to say" onChange={(e) => this.handleChange(e)} />
+                                    <label for="Prefer not to say">Prefer not to say</label>
                                 </div>
                                 
                               

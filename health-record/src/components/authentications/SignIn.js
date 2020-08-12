@@ -63,10 +63,10 @@ class SignIn extends Component {
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} style={col5} onClick={() => this.handleLogin()}>
                             <Button variant="warning" >Login</Button>
                         </Col>
-
+{/* 
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} style={col5}>
                             <Button variant="warning" >Login with Google+</Button>
-                        </Col>
+                        </Col> */}
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} style={col5}>
                             <a style={{ fontSize: 20, color: 'white' }}>Forgot password? Reset it</a>
                         </Col>

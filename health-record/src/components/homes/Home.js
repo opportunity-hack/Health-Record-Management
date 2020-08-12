@@ -36,20 +36,20 @@ class Home extends Component {
                             
                             <h2 style={head2}>View all your treatments at once place</h2>
                             <p style={para}> Using MedCare EHR, you can view your treatments and prescriptions in just one click. You no longer have to dcoument your past medical history as MedCare EHR does that for you.</p>
-                            <Button variant="warning">Get started</Button>
+                            {/* <Button variant="warning">Get started</Button> */}
                         </Col>
     
                         <Col xs={12} sm={12} md={12} lg={{ span : 5, offset : 2}} xl={{ span : 5, offset : 2}}>
                             <img src="/photos/rightlogo.png" style={logo}/>
                             <h2 style={head2}>Accelerate your workflow</h2>
                             <p style={para}>No longer will you need to spend hours after work completing notes. MedCare EHR works with your workflow, not againts it, and let you spend less time in the EHR and more time with your patients.</p>
-                            <Button variant="warning">Get started</Button>
+                            {/* <Button variant="warning">Get started</Button> */}
                         </Col>
                     </Row>
                 </Container>
                 
             
-                 <ChatBox />   
+                {this.state.botVisible &&  <ChatBox />  }
                  
                 
                 <div style={{float : "left"}}>

@@ -32,7 +32,7 @@ class DHome extends Component {
                                 </span>
                                 <h2 style={head2}>Treatments</h2>
                                 <p style={para}>View treatments you are currently administering to patients.</p>
-                                <Button variant="warning">View Treatments</Button>
+                                <Button variant="warning" onClick={() => window.location.href = '/dtreat'}>View Treatments</Button>
 
                             
                             </Col>
@@ -44,7 +44,7 @@ class DHome extends Component {
                                 <h2 style={head2}>Schedule</h2>
                                 
                                 <p style={para}>View your schedule, which includes appointments with patients and other events.</p>
-                                <Link to="/appointment"> <Button variant="warning">View Schedule</Button> </Link>
+                                 <Button variant="warning" onClick={() => window.location.href = '/appointment'}>View Schedule</Button> 
                             </Col>
                         </Row>
                     </Container> 

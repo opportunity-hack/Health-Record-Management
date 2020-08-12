@@ -26,7 +26,7 @@ class PHome extends Component {
                                 </span>
                                 <h2 style={head2}>Treatments</h2>
                                 <p style={para}>View all treatments you are currently undergoing or have been through.</p>
-                                <Button variant="warning">View Treatments</Button>
+                                <Button variant="warning" onClick={() => window.location.href = '/ptreat'}>View Treatments</Button>
 
                             
                             </Col>
@@ -38,7 +38,7 @@ class PHome extends Component {
                                 <h2 style={head2}>Appointments</h2>
                                 
                                 <p style={para}>View past appointments, and schedule new appointments with your doctor or therapist.</p>
-                                <Link to="/appointment"> <Button variant="warning">View Appointments</Button> </Link>
+                                 <Button variant="warning" onClick={() => window.location.href = '/appointment'}>View Appointments</Button> 
                             </Col>
                         </Row>
                     </Container>

@@ -72,10 +72,12 @@ export const fetchUser = () => {
 export const fetchUserAppointment = () => {
   
   return (dispatch, getState) =>  {
-    fetch('https://schedapp1.herokuapp.com/getDocSched?id=41', {
+    fetch('https://schedapp1.herokuapp.com/getDocSched?id=121', {
         method: 'GET',
+        
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `JWT ${localStorage.getItem('token')}`,
         } 
     })
     .then(res => res.json())
@@ -88,23 +90,58 @@ export const fetchUserAppointment = () => {
   }
     
 }
-export const scheduleAppt = (appt_detail) => {
+  
+export const fetchUserCurrentAppointment = (uid) => {
+  
+  // 1 6 
+  // 10
   return (dispatch, getState) =>  {
-    fetch('https://schedapp1.herokuapp.com/schedule', {
-        method: 'POST',
+    fetch('https://schedapp1.herokuapp.com/getAppt?id=' + uid, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(appt_detail)
+          Authorization: `JWT ${localStorage.getItem('token')}`,
+        } 
     })
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      dispatch({type : 'FETCH_USER_APPT', payload : data})
+      dispatch({type : 'FETCH_USER_CURRENT_APPT', payload : data})
     })
     .catch(err => {dispatch({type : "FETCH_USER_APPT_ERROR"})})
 
   }
+    
+}
+
+   // fetch('https://schedapp1.herokuapp.com/schedule', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       Authorization: `JWT ${localStorage.getItem('token')}`,
+    //     },
+    //     body: JSON.stringify(appt_detail)
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data)
+    //   dispatch({type : 'CREATE_USER_APPT', payload : data})
+    // })
+    // .catch(err => {dispatch({type : "CREATE_USER_APPT_ERROR"})})
+export const scheduleAppt = (appt_detail) => {
+  const axios = require('axios');
+  return (dispatch, getState) =>  {
+    axios.post('https://schedapp1.herokuapp.com/schedule/', appt_detail, {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      } 
+    })
+    
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
+  
     
 }
 
