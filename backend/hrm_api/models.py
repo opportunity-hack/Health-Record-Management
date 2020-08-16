@@ -27,8 +27,11 @@ def last_name_validator(data):
 def gender_validator(data):
     if len(data) < 1:
         raise serializers.ValidationError("GENDER cannot be blank!")
-    elif data == "---":
-        raise serializers.ValidationError("Please select your GENDER!")
+    return data
+
+def phone_number_validator(data):
+    if len(data) < 1:
+        raise serializers.ValidationError("PHONE NUMBER cannot be blank!")
     return data
 
 def birth_date_validator(data):
@@ -101,13 +104,14 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser):
-    image = models.ImageField(upload_to='images', blank = True, null = True)
+    # image = models.ImageField(upload_to='images', blank = True, null = True)
     first_name = models.CharField(max_length = 25, validators = [first_name_validator])
     last_name = models.CharField(max_length = 25, validators = [last_name_validator])
     email = models.EmailField(max_length = 25, unique = True, validators = [email_validator])
     password = models.CharField(max_length = 100, validators = [password_validator])
-    gender = models.CharField(max_length = 6, validators = [gender_validator])
+    gender = models.CharField(max_length = 25, validators = [gender_validator])
     birth_date = models.DateField(null = True, blank = True, validators = [birth_date_validator])
+    phone_number = models.CharField(max_length = 25, validators = [phone_number_validator])
     street_address = models.CharField(max_length = 50,validators = [street_address_validator])
     city = models.CharField(max_length = 25, validators = [city_validator])
     state = models.CharField(max_length = 2,  validators = [state_validator])

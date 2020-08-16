@@ -8,5 +8,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('hrm_api.urls')),
     path('token-auth/', obtain_jwt_token), 
-    path('accounts/', include('allauth.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # path('accounts/', include('allauth.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

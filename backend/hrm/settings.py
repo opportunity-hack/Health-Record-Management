@@ -1,22 +1,15 @@
 import os
 import datetime 
-import keys
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-map = keys
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = map.SECRET_KEY
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [map.HOST1, map.HOST2, map.HOST3]
+ALLOWED_HOSTS = [os.environ.get('HOST1')]
 
 
 # Application definition
@@ -30,15 +23,15 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
     'django.contrib.staticfiles',
     'rest_framework',
     'hrm_api.apps.HrmApiConfig',
     'corsheaders',
 ]
 
-SITE_ID = 1
+# SITE_ID = 1
 
 AUTH_USER_MODEL = 'hrm_api.User'
 
@@ -66,8 +59,10 @@ REST_FRAMEWORK = {
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'hrm.utils.my_jwt_response_handler',
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=1000000000), 
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=100000), 
 }
+
+
 
 ROOT_URLCONF = 'hrm.urls'
 
@@ -95,14 +90,15 @@ WSGI_APPLICATION = 'hrm.wsgi.application'
 
 # ******* IN ORDER TO CONNECT HEROKU DB, YOU MUST USE DJANGO==2.0.0, NOT COMPATIBALE WITH LATEST DJANGO! *******
 # ******* REFERENCE: https://stackoverflow.com/questions/53148918/django-app-throws-migrationschemamissing-when-migrating-to-heroku-mysql-cleardb *******
+# ******* DO NOT INCLUDE PORT WHEN IN HEROKU, IT WILL NOT READ AS THE CORRECT PORT, PORT NOT NECESSARY! *******
+
 DATABASES = {
     'default': {
-        'ENGINE': map.ENGINE,
-        'NAME': map.NAME,
-        'USER': map.USER,
-        'PASSWORD': map.PASSWORD,
-        'HOST': map.HOST,
-        'PORT': map.PORT,
+        'ENGINE': os.environ.get('ENGINE'),
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
     }
 }
 
@@ -151,13 +147,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'hrm')
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    'https://localhost:3000',
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
 )
+
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://127.0.0.1:3000",
+]
+
 

@@ -32,7 +32,9 @@ class UserList(APIView):
         serializer = UserSerializerWithToken(data = request.data) 
         if serializer.is_valid(raise_exception = True): 
             serializer.save() 
+            print("*****WHAT IS MY ERROR?", serializer.data)
             return Response(serializer.data)
+        print("*****WHAT IS MY ERROR?", serializer.errors)
         return Response(serializer.errors)
 
 @api_view(['GET'])
