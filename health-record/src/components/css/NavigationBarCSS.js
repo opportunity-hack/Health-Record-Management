@@ -1,6 +1,6 @@
 export const logo = {
-    width : '125px',
-    height : '125px',
+    width : '100px',
+    height : '100px',
 }
 
 export const header = {

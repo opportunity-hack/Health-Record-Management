@@ -13,6 +13,8 @@ import Ptreat from "./components/treatment/Ptreat";
 import Dtreat from "./components/treatment/Dtreat";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import DoctorPatient from "./components/homes/DoctorPatient";
+import DAccount from "./components/homes/DAccount";
 
 function App() {
     return (
@@ -27,6 +29,8 @@ function App() {
                 <Route path="/appointment" component={AppointmentHome} />
                 <Route path="/ptreat" component={Ptreat} />
                 <Route path="/dtreat" component={Dtreat} />
+                <Route path="/doctor_patient" component={DoctorPatient} />
+                <Route path="/doctor_account" component={DAccount} />
             </Switch>
             <Footer />
         </BrowserRouter>

@@ -4,7 +4,7 @@ import {logo, head, head1, head2, para, col1, col2} from '../css/PHomeCSS'
 import {Link} from 'react-router-dom'
 import {fetchUser} from '../store/actions/authenticationAction'
 import {connect} from 'react-redux'
-class DHome extends Component {
+class DoctorPatient extends Component {
 
     componentDidMount() {
         document.body.style.backgroundColor = "#19709c"
@@ -15,35 +15,35 @@ class DHome extends Component {
     render() {
 
         console.log(this.props.userData)
+        console.log("hello")
         return (
-            <div style={{textAlign : "center", marginTop : 20}}>
+            <div style={{textAlign : "center",  marginTop : 20}}>
 
     
                  {(this.props.logged_in) &&
                 <div>
-                    <h1 style={head1}>My upcoming appointments</h1>
+                    <h1 style={head1}>My patients</h1>
                     <Container style={{marginTop : 75}}>
                     <Table striped bordered hover style={{color : "white"}}>
                         <thead>
                             <tr>
-                            <th>Date</th>
-                            <th>Patient's fullname</th>
+                            <th>Fullname</th>
+                            <th>Gender</th>
+                            <th>Date of birth</th>
                             <th>Treatment</th>
-                            <th>Phone number</th>
-                            <th>Email</th>
+                            <th>Profile</th>
                             <th>Action</th>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
                             <th></th>
+                            <th> </th>
+                            <th>{this.props.userData.birth_date}</th>
                             <th></th>
                             <th></th>
-                            <th></th>
-                            <th>{this.props.userData.email} </th>
-                            <th><Button variant = "danger">Cancel</Button> <Button variant = "warning">Modify</Button></th>
+                            <th><Button variant = "warning">Unassign</Button></th>
                             </tr>
-
                         </thead>
 
                         </Table>
@@ -71,5 +71,5 @@ const mapStateToProps = (state) => {
         logged_in : state.authentication.logged_in
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(DHome);
+export default connect(mapStateToProps, mapDispatchToProps)(DoctorPatient);
 

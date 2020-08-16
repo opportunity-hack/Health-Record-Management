@@ -19,29 +19,35 @@ class NavigationBar extends Component {
             return (
                 <div>
                 <Navbar expand="lg" style={{backgroundColor : "white"}}>
-                <img src="/photos/logo.png" style={logo} onClick= {() => window.location.href = "/" }/>
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    {this.props.logged_in ? 
-                    <Nav className="mr-auto">
-                        <h style={header}> Hi, {this.props.userData.first_name}</h>
-                    </Nav>
-                    :
-                    <Nav className="mr-auto">
-                        <h style={header}> Overview </h>
-                    </Nav>
-                    }
-                    
-                    <Form inline>
+                    <Navbar.Brand> <img src="/photos/logo.png" style={logo} onClick= {() => window.location.href = "/" }/> </Navbar.Brand>
+
                     
                     {this.props.logged_in ?
                     <div>
-                        <Button variant="warning" style={btton} onClick={() => window.location.href = '/dtreat'}>Treatment </Button>
+                        <Nav className="float-right">
+                       
+                        <Nav.Item>
+                            <Nav.Link href="/dhome" style={{color : "black", fontWeight : "bold"}}>Home</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/doctor_account" style={{color : "black", fontWeight : "bold"}}>My account</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/doctor_patient" style={{color : "black", fontWeight : "bold"}}>Patients</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item >
+                            <Nav.Link onClick={() => this.props.signOut()} style={{color : "black", fontWeight : "bold"}}>Sign out</Nav.Link>
+                        </Nav.Item>
+
+                        </Nav>
+                        {/* <Button variant="warning" style={btton} onClick={() => window.location.href = '/dtreat'}>Treatment </Button>
                         &nbsp;&nbsp;&nbsp;
                         <Button variant="warning" style={btton} onClick={() => window.location.href = '/appointment'}>Calendar </Button>
                         &nbsp;&nbsp;&nbsp;
-                        <Button variant="warning" style={btton} onClick={() => this.props.signOut()}>Sign Out</Button>
+                        <Button variant="warning" style={btton} onClick={() => this.props.signOut()}>Sign Out</Button> */}
                     </div>
                     
                      :
@@ -54,7 +60,7 @@ class NavigationBar extends Component {
                     }
                    
                     
-                    </Form>
+
                 </Navbar.Collapse>
                 </Navbar>
                 </div>

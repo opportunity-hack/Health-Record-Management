@@ -7,7 +7,7 @@ import rootReducer from '../src/components/store/reducers/rootReducer'
 import {createStore, applyMiddleware, compose} from 'redux'
 import {getFirestore, reduxFirestore} from 'redux-firestore';
 import {getFirebase, reactReduxFirebase} from 'react-redux-firebase';
-import firebaseConfig from './config/firebaseConfig'
+
 import thunk from 'redux-thunk'
 import * as serviceWorker from './serviceWorker';
 

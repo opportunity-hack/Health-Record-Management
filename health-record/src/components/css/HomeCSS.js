@@ -6,7 +6,7 @@ export const head = {
 
 export const head1 = {
     fontSize : 30, 
-    color : 'white'
+    color : 'white',
 }
 
 export const head2 = {
