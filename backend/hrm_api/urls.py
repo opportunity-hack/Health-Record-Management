@@ -11,4 +11,4 @@ urlpatterns = [
     path('user-list/', views.userList, name = "user-list"),
     path('user-detail/<str:pk>/', views.userDetail, name = "user-detail"),
     path('user-update/<str:pk>/', views.userUpdate, name = "user-update"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,14 @@
+__pycache__/
+.vscode/
+*pyc
+
+*myKeys
+myKeys
+*myKeys.py
+myKeys.py
+
+venv
+
+.env
+env
+*env
